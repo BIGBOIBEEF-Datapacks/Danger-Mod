@@ -3,6 +3,10 @@ package com.bigboibeef.timetracker;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Style;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
@@ -76,6 +80,18 @@ public class TimeTracker implements ClientModInitializer {
 				if (client.player != null && client.world != null) {
 					showTime = !showTime;
 					lastPressedTime = currentTime;
+					if (showTime) {
+						client.player.sendMessage(Text.literal("[TIME] ")
+								.setStyle(Style.EMPTY.withColor(0xEFB13C))
+								.append(Text.literal("Clock On")
+										.styled(s -> s.withColor(Formatting.GREEN))));
+					} else {
+						client.player.sendMessage(Text.literal("[TIME] ")
+								.setStyle(Style.EMPTY.withColor(0xEFB13C))
+								.append(Text.literal("Clock Off")
+										.styled(s -> s.withColor(Formatting.GREEN))));
+					}
+					client.player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP);
 				}
 			}
 			if (client.world != null) {
