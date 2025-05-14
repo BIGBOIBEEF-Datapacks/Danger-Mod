@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "time-tracker",
+	"id": "danger-mod",
 	"version": "${version}",
-	"name": "Time Tracker",
+	"name": "Danger Mod",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Me!"
@@ -12,11 +12,10 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/time-tracker/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"com.bigboibeef.timetracker.TimeTracker"
+			"com.bigboibeef.dangermod.DangerMod"
 		]
 	},
 	"depends": {
